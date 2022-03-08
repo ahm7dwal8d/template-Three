@@ -10,6 +10,19 @@
     --main-transition: .3s;
     --section-background:#ececec;
 }
+.dark-items {
+    --main-color: #2196f3;
+    --main-color-hover: #1787e0;
+    --main-transition: .3s;
+    --section-background:#ececec;
+    background-color: black;
+    color: var(--main-color);
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+}
 ul {
     list-style-type: none;
 }
@@ -212,10 +225,15 @@ html {
 .link-content img {
     width: 300px;
 }
-li.other:hover .link-content i {
+@media (max-width: 767px) {
+    .link-content img  {
+        display: none;
+    }
+}
+li.other .link-content.active i {
     padding-right: 10px;
 }
-li.other:hover .link-content {
+li.other .link-content.active {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,7 +244,12 @@ li.other:hover .link-content {
     width: 100%;
     padding: 30px;
     left: 0;
-    border-bottom: 5px solid var(--main-color); 
+    border-bottom: 5px solid var(--main-color);
+    transition: all 0.4s linear ;
+    -webkit-transition: all 0.4s linear ;
+    -moz-transition: all 0.4s linear ;
+    -ms-transition: all 0.4s linear ;
+    -o-transition: all 0.4s linear ;
 }
 .link-content .link > li a {
     color: var(--main-color);
@@ -234,6 +257,12 @@ li.other:hover .link-content {
     display: block;
     font-size: 18px;
     font-weight: bold;
+}
+@media (max-width: 540px) {
+    .link-content .link > li a {
+        padding: 15px 0;
+        font-size: 13px;
+    }
 }
 .link-content .link > li {
     position: relative;
@@ -253,6 +282,29 @@ li.other:hover .link-content {
     -moz-transition: var(--main-transition);
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
+}
+.header .dark-mood {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+.header .dark-mood:hover {
+    color: black;
+    background-color: white;
+    transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+}
+.header .dark-mood i {
+    padding: 10px;
 }
 /* End Header  */
 /* Start landing */
@@ -1396,6 +1448,10 @@ li.other:hover .link-content {
     width: 4px;
     background-color: var(--main-color);
     transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
 }
 .state .state-content .box::before {
     right: 0;
@@ -1415,7 +1471,8 @@ li.other:hover .link-content {
     font-size:50px;
     margin-bottom: 10px;
 }
-.state .state-content .box p {
+.state .state-content .box span {
+    display: block;
     font-size: 50px;
     font-weight: bold;
     margin: 0;
