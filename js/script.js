@@ -27,6 +27,19 @@ window.onscroll = function () {
             skills.style.width = "0"
         })
         
+        
+    }
+    let StateSatateOffset = StateSection.offsetTop;
+
+    if (window.scrollY > StateSatateOffset) {
+
+        if (!Started) {
+            StateElement.forEach((num)=> {
+                StartCounte(num)
+            })
+        }
+
+        Started = true;
     }
 
 // Fixed Header
@@ -67,20 +80,6 @@ let StateElement = document.querySelectorAll(".state span");
 let Started = false;
 console.log(StateElement[0])
 
-window.onscroll = function () {
-    let StateSatateOffset = StateSection.offsetTop;
-
-    if (window.scrollY > StateSatateOffset) {
-
-        if (!Started) {
-            StateElement.forEach((num)=> {
-                StartCounte(num)
-            })
-        }
-
-        Started = true;
-    }
-}
 
 function StartCounte(el) {
     let goal = el.dataset.goal;

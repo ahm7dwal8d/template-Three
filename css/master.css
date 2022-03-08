@@ -1490,6 +1490,7 @@ li.other .link-content.active {
 @media (max-width: 991px) {
     .contact .contact-content {
         flex-direction: column;
+        margin-bottom: 60px;
     }
 }
 .contact .contact-content .info-content {
