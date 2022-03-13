@@ -19,6 +19,7 @@ window.onscroll = function () {
         })
         
     }
+
     if (window.scrollY < (SkillsSectionOffset + SkillsSectionHeight - PageHeight)) {
 
         let SkillsDiv = document.querySelectorAll(".our-skill .prog span")
@@ -26,9 +27,9 @@ window.onscroll = function () {
         SkillsDiv.forEach((skills) => {
             skills.style.width = "0"
         })
-        
-        
     }
+
+    
     let StateSatateOffset = StateSection.offsetTop;
 
     if (window.scrollY > StateSatateOffset) {
@@ -91,3 +92,43 @@ function StartCounte(el) {
     }, 2000 / goal)
 }
 
+// Gallery Section 
+let galleryimg = document.querySelectorAll(".gallery .image img");
+console.log(galleryimg[0])
+
+galleryimg.forEach((img) => {
+    img.addEventListener("click" , function() {
+        let overly = document.createElement("div")
+        overly.className = "popup-overly"
+        document.body.appendChild(overly)
+        let PopupBox = document.createElement("div")
+        PopupBox.className = "popup-box"
+        if (img.alt !== null) {
+            let TextHead = document.createElement("h3")
+
+            let Text = document.createTextNode(img.alt)
+
+            TextHead.appendChild(Text)
+
+            PopupBox.appendChild(TextHead)
+        }
+        let PopupImg = document.createElement("img")
+        PopupImg.src = img.src;
+        PopupBox.appendChild(PopupImg)
+        document.body.appendChild(PopupBox)
+
+        let CloseButton = document.createElement("span");
+        let CloseButtonText = document.createTextNode("X")
+        CloseButton.appendChild(CloseButtonText)
+        CloseButton.className = "close-button"
+        PopupBox.appendChild(CloseButton)
+
+        // Remove Popup From Dom 
+        document.addEventListener("click" , function (e) {
+            if (e.target.className === "close-button") {
+                e.target.parentNode.remove()
+                document.querySelector(".popup-overly").remove()
+            }
+        })
+    })
+})
